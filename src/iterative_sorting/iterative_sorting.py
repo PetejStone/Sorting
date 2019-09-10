@@ -36,16 +36,25 @@ def selection_sort( arr ):
 
 
 # # TO-DO:  implement the Bubble Sort function below
-def bubble_sort( arr ):
-    for i in range(len(arr)-1,0,-1): # reverses the list from top to bottom
-        for i in range(i): #only check in the range of the current index
-            if arr[i] > arr[i+1]: #if current index is greater than the next index
-                temp = arr[i]  ##swap
-                arr[i] = arr[i+1]
-                arr[i+1] = temp
+# def bubble_sort( arr ):
+#     for i in range(len(arr)-1,0,-1): # reverses the list from top to bottom
+#         for j in range(i): #only check in the range of the current index
+#             if arr[j] > arr[j+1]: #if current index is greater than the next index
+#                 temp = arr[j]  ##swap
+#                 arr[j] = arr[j+1]
+#                 arr[j+1] = temp
     
-    return arr
+#     return arr
 
+def bubble_sort( arr ):
+    for i in range(len(arr)): 
+        for j in range(len(arr)-1):
+            if arr[j] > arr[j+1]:
+                temp = arr[j]
+                arr[j] = arr[j+1]
+                arr[j+1] = temp
+    return arr
+        
 
 # # STRETCH: implement the Count Sort function below
 # def count_sort( arr, maximum=-1 ):
