@@ -58,19 +58,21 @@ def binary_search(arr, target):
     return -1
 # STRETCH: write a recursive implementation of Binary Search 
 def binary_search_recursive(arr, target, low, high):
+ 
   
-  
-
   if len(arr) == 0:
     return -1 # array empty
-  
-  mid = (low+high)//2
+  orgarr = arr
+  mid = low + (high - 1) // 2 
   item = arr[mid]
 
   if item == target:
-    return item
+    print(f'RESULTs: index -> {orgarr.index(item)} value => {item} orgarr -> {orgarr}')
+    return arr.index(target)
   elif item > target:
-    return binary_search_recursive(arr[:mid], target, low, high)
+    print('test1')
+    return binary_search_recursive(arr, target, low, mid+1)
   else:
-    return binary_search_recursive(arr[mid +1:], target, low, high)
+    print('test2')
+    return binary_search_recursive(arr, target,mid, high)
   # TO-DO: add missing if/else statements, recursive calls
