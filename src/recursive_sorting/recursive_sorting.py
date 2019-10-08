@@ -54,17 +54,17 @@
 # # STRETCH: implement an in-place merge sort algorithm
 def merge_in_place(arr, start, end):
     # TO-DO
-    if start >= end:
-        return arr
-    pivot_index = start
+    if start >= end: # if start is >= end  -- or if there is one element left -- base case
+        return arr #return the array
+    pivot_index = start # set the pivot to the first index
 
-    for i in range(start,end):
-        if arr[i] < arr[pivot_index]:
-            arr[i], arr[pivot_index + 1] = arr[pivot_index + 1], arr[i]
-            arr[pivot_index], arr[pivot_index + 1], = arr[pivot_index + 1], arr[pivot_index]
-            pivot_index +=1
-    merge_in_place(arr, start, pivot_index)
-    merge_in_place(arr, pivot_index + 1, end)
+    for i in range(start,end): # for every i in range from the start to end point                        p       i 
+        if arr[i] < arr[pivot_index]: # if the item at that index is less than the pivot index --- i.e. [2,5,9,3,0]  <-- 0 is less than pivot, so swap with item next to pivot (below)
+            arr[i], arr[pivot_index + 1] = arr[pivot_index + 1], arr[i] #swap the item with the item NEXT to the pivot i.e. [2,0,9,5,3]
+            arr[pivot_index], arr[pivot_index + 1], = arr[pivot_index + 1], arr[pivot_index] # do a second swap of swapping the new item (next to the pivot) with the pivot --> [0,2,9,5,3]
+            pivot_index +=1 #increase pivot index to the next element
+    merge_in_place(arr, start, pivot_index) # use recursion to set the end to the next incremented pivot index and run fn again (left side)
+    merge_in_place(arr, pivot_index + 1, end) # use recursion for the other side (right side)
 
     return arr
 
